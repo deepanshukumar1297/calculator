@@ -1,48 +1,97 @@
-/* src/AffiliateCalculator.css */
+/* Global Styles */
 
-.affiliate-calculator {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto;
+
+/* Custom Styles for Affiliate Calculator */
+.affiliate-calculator-container {
+  @apply w-full max-w-7xl mx-auto bg-white shadow-lg rounded-lg;
+}
+
+.calculator-header {
+  @apply text-2xl font-bold text-center mb-2 text-gray-800;
+}
+
+.calculator-subheader {
+  @apply text-center text-gray-600 mb-6;
+}
+
+.input-section {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-gray-50 p-6 rounded-lg shadow-sm;
+}
+
+.input-wrapper {
+  @apply grid gap-2;
+}
+
+.input-label {
+  @apply font-medium text-gray-700;
+}
+
+.input-field {
+  @apply bg-white border border-gray-300 rounded-md px-3 py-2 w-full 
+         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent 
+         transition duration-200 ease-in-out;
+}
+
+.calculate-button {
+  @apply bg-blue-600 hover:bg-blue-700 text-white px-8 py-2 rounded-md 
+         font-medium flex items-center transition duration-200 ease-in-out 
+         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.chart-container {
+  @apply border rounded-lg p-4;
+}
+
+.chart-title {
+  @apply font-semibold mb-4 text-gray-700;
+}
+
+.results-table {
+  @apply overflow-x-auto bg-white rounded-lg shadow;
+}
+
+.table-header {
+  @apply bg-gray-50;
+}
+
+.table-header-cell {
+  @apply p-3 border-b text-right font-semibold text-gray-700;
+}
+
+.table-row {
+  @apply hover:bg-gray-50 transition duration-100 ease-in-out;
+}
+
+.table-cell {
+  @apply p-3 text-right;
+}
+
+.positive-value {
+  @apply text-green-600 font-bold;
+}
+
+.negative-value {
+  @apply text-red-600 font-bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .input-section {
+    @apply grid-cols-1 gap-3 p-4;
   }
   
-  .inputs {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin: 20px 0;
+  .calculate-button {
+    @apply w-full;
   }
-  
-  input {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  .charts {
-    margin-top: 30px;
-  }
-  
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
